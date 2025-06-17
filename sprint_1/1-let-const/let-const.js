@@ -11,7 +11,7 @@
 // Код задания 1
 
 const appName = "Название";
-let currentUser = "Юзер1", isDarkTheme = 0; // isDarkTheme булевая, 0 - отключено(светлая тема), 1 - включено(темная тема)
+let currentUser = "Юзер1", isDarkTheme = false;
 
 /**
  * Задание 2.
