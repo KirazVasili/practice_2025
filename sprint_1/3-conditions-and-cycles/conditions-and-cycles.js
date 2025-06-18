@@ -9,7 +9,7 @@
 // Код задания 1
 
 function checkAge(age) {
-    //
+    console.log(age >17 ? "Доступ разрешён" : "Доступ запрещён");
 }
 
 checkAge(10)
@@ -24,6 +24,7 @@ checkAge(26)
 
 // Код задания 2
 
+for (let i = 1; i < 11; i++) console.log(i);
 
 /**
  * Задание 3.
@@ -34,6 +35,12 @@ checkAge(26)
 
 // Код задания 3
 
+function Stars(num){
+    let rating = "";    
+    for (let i = 0; i < 5; i++) i < num ? rating += "★" : rating += "☆";
+    console.log(rating);
+}
+Stars(3);
 
 /**
  * Задание 4.
@@ -46,6 +53,13 @@ checkAge(26)
 
 // Код задания 4
 
+function nightBlock(date){
+    if(date.getHours()>=22 || date.getHours()<7) return console.log("Ночная блокировка: операции недоступны");
+    else return console.log(true);
+}
+
+let now = new Date();
+nightBlock(now);
 
 /**
  * Задание 5.
@@ -75,6 +89,14 @@ const productList = [
 
 // Код задания 5
 
+function ReturnList(list){
+    let i = 1;
+    for(item of list){
+        console.log(`${i}. ${item.name} - ${item.price}₽`);
+        i++
+    }
+}
+ReturnList(productList)
 
 /**
  * Задание 6.
@@ -87,6 +109,14 @@ const productList = [
 
 // Код задания 6
 
+function RewriteList(list){
+    for(item of list){
+        item.price -= item.price*0.2;
+    }
+    return list.filter(entry => entry.price > 40);
+}
+ReturnList(RewriteList(productList));
+
 /**
  * Задание 7.
  Напишите метод которая выводит числа от 1 до 100:
@@ -97,3 +127,10 @@ const productList = [
 
 
 // Код задания 7
+
+for(let i = 1; i < 101; i++){
+    if(i%5==0 && i%3==0) console.log("FizzBuzz")
+    else if(i%5==0) console.log("Buzz")
+    else if(i%3==0) console.log("Fizz")
+    else console.log(i);
+}
