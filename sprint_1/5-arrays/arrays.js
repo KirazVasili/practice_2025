@@ -5,10 +5,26 @@
 
 // Код задания 1
 
+let mass = [2, 1, 2, 5, 3, 4, 5];
+const sum = (arr) => arr.reduce((sum, item) => sum + item, 0);
+
+console.log("№1");
+console.log(sum(mass));
+
 /** Задание 2.
 Напиши метод `unique(arr)`, которая возвращает новый массив без повторяющихся значений.
  **/
 // Код задания 2
+
+function unique(arr){
+  let newArr = new Array();
+  for(item of arr){
+    if(newArr.indexOf(item) === -1) newArr.push(item);
+  }
+  return newArr;
+}
+console.log("№2");
+console.log(unique(mass));
 
 /**
   Задание 3.
@@ -16,10 +32,20 @@
  **/
 // Код задания 3
 
+const filterRange = (arr, a, b) =>  newArr = arr.slice(a, b);
+console.log("№3");
+console.log(filterRange(mass, 0, 3));
+
 /** Задание 4.
 Напиши метод`sortDesc(arr)`, сортирующую числовой массив по убыванию без изменения оригинала.
  **/
 // Код задания 4
+
+const sortDesc = (arr) => {
+  let newArr = arr.slice(0, arr.length);
+  return newArr.sort().reverse();}
+console.log("№4");
+console.log(sortDesc(mass));
 
 /** Задание 5.
 ` Напиши метод flatMapDemo(arr), которая для каждого элемента x из массива arr создаёт новый массив
@@ -29,6 +55,12 @@
 
 // Код задания 5
 
+function flatMapDemo(arr){
+  const newArr = arr.flatMap((item) => [item, item*2]);
+  console.log(newArr);
+}
+console.log("№5");
+flatMapDemo(mass);
 
 /** Задание 6.
 `Напиши метод groupBy(arr, keyFunc)` — группирует элементы массива по ключу,
@@ -37,8 +69,21 @@
 
 // Код задания 6
 
+const groupBy = (arr, keyFunc) => newArr = arr.filter(item => keyFunc(item));
+console.log("№6");
+console.log(groupBy(mass, function(item){return item > 2;}))
+
 /** Задание 7.
 `Напиши метод rotate(arr, n)` — возвращает новый массив, в котором элементы сдвинуты вправо на `n` позиций (цикл).
  Пример: `rotate([1,2,3,4,5], 2)` → `[4,5,1,2,3]`.
+ [1,2,3,4,5] -> [3,4,5,1,2]
  **/
  // Код задания 7
+
+const rotate = (arr, n) => {
+  let arrLeft = arr.slice(arr.length-n, arr.length);
+  let arrRight = arr.slice(0, arr.length-n);
+  return arrLeft.concat(arrRight);
+}
+console.log("№7");
+console.log(rotate([1,2,3,4,5], 2));
