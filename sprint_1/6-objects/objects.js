@@ -6,6 +6,12 @@
 
 // Код задания 1
 
+let person = {
+    firstName: "Иван",
+    lastName: "Иванов",
+    age: 22
+}
+console.log(person.firstName, person.lastName, person.age, "года");
 
 /**
  * Задание 2.
@@ -14,6 +20,8 @@
 
 // Код задания 2
 
+person.city = "Moscow";
+
 /**
  * Задание 3.
  Удалите свойство age из объекта person.
@@ -21,6 +29,7 @@
 
 // Код задания 3
 
+delete person.age;
 
 /**
  * Задание 4.
@@ -29,6 +38,7 @@
 
 // Код задания 4
 
+for(key in person) console.log(key, person[key]);
 
 /**
  * Задание 5.
@@ -37,6 +47,10 @@
 
 // Код задания 5
 
+function returnKeys(obj){
+    return Object.keys(obj);
+}
+console.log(returnKeys(person));
 
 /**
  * Задание 6.
@@ -45,6 +59,11 @@
 
 // Код задания 6
 
+function returnValues(obj){
+    return Object.values(obj);
+}
+console.log(returnValues(person));
+
 /**
  * Задание 7.
  Создайте объект с методом greet(), который выводит в консоль приветствие с использованием значения свойства name.
@@ -52,4 +71,9 @@
 
 // Код задания 7
 
+let testObj = {
+    name: "Иван",
+    greet() {console.log(`Привет, ${this.name}!`);}
+}
 
+testObj.greet();
