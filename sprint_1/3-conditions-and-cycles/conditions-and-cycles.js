@@ -24,7 +24,7 @@ checkAge(26)
 
 // Код задания 2
 
-for (let i = 1; i < 11; i++) console.log(i);
+for (let i = 1; i <= 10; i++) console.log(i);
 
 /**
  * Задание 3.
@@ -54,12 +54,12 @@ Stars(3);
 // Код задания 4
 
 function nightBlock(date){
-    if(date.getHours()>=22 || date.getHours()<7) return console.log("Ночная блокировка: операции недоступны");
-    else return console.log(true);
+    if(date.getHours()>=22 || date.getHours()<7) return "Ночная блокировка: операции недоступны";
+    return true;
 }
 
 let now = new Date();
-nightBlock(now);
+console.log(nightBlock(now));
 
 /**
  * Задание 5.
@@ -128,7 +128,7 @@ ReturnList(RewriteList(productList));
 
 // Код задания 7
 
-for(let i = 1; i < 101; i++){
+for(let i = 1; i <= 100; i++){
     if(i%5==0 && i%3==0) console.log("FizzBuzz")
     else if(i%5==0) console.log("Buzz")
     else if(i%3==0) console.log("Fizz")

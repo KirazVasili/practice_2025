@@ -17,10 +17,7 @@ console.log(sum(mass));
 // Код задания 2
 
 function unique(arr){
-  let newArr = new Array();
-  for(item of arr){
-    if(newArr.indexOf(item) === -1) newArr.push(item);
-  }
+  let newArr = new Set(arr);
   return newArr;
 }
 console.log("№2");
@@ -32,9 +29,17 @@ console.log(unique(mass));
  **/
 // Код задания 3
 
-const filterRange = (arr, a, b) =>  newArr = arr.slice(a, b);
+const filterRange = function (arr, a, b){
+  if (a<0) a = 0;
+  if (b<0) b = 0;
+  if (b>arr.length) b = arr.length;
+  if (a>b) a = b;
+
+  newArr = arr.slice(a, b);
+  return newArr;
+}
 console.log("№3");
-console.log(filterRange(mass, 0, 3));
+console.log(filterRange(mass, 1, 4));
 
 /** Задание 4.
 Напиши метод`sortDesc(arr)`, сортирующую числовой массив по убыванию без изменения оригинала.
@@ -42,7 +47,7 @@ console.log(filterRange(mass, 0, 3));
 // Код задания 4
 
 const sortDesc = (arr) => {
-  let newArr = arr.slice(0, arr.length);
+  let newArr = [...arr];
   return newArr.sort().reverse();}
 console.log("№4");
 console.log(sortDesc(mass));
@@ -81,6 +86,8 @@ console.log(groupBy(mass, function(item){return item > 2;}))
  // Код задания 7
 
 const rotate = (arr, n) => {
+  if (n>arr.length) n = arr.length;
+
   let arrLeft = arr.slice(arr.length-n, arr.length);
   let arrRight = arr.slice(0, arr.length-n);
   return arrLeft.concat(arrRight);

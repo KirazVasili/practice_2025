@@ -56,24 +56,33 @@ console.log(Number(strA) + 5); // Тк здесь строка явно прив
 
 // Код задания 3
 
-guessType(testString);
-guessType(testNum);
-guessType(testBool);
-guessType(testNull);
-guessType(testUndef);
-guessType(testSymbol);
-guessType(testBigInt);
-guessType(testObj);
-guessType(testMass);
+console.log(guessType(testString));
+console.log(guessType(testNum));
+console.log(guessType(testBool));
+console.log(guessType(testNull));
+console.log(guessType(testUndef));
+console.log(guessType(testSymbol));
+console.log(guessType(testBigInt));
+console.log(guessType(testObj));
+console.log(guessType(testMass));
 
 function guessType (a){
-    if(typeof(a)=="string") console.log("Это строка");
-    else if(typeof(a)=="number") console.log("Это число");
-    else if(typeof(a)=="boolean") console.log("Это булево");
-    else if(typeof(a)=="symbol") console.log("Это символ");
-    else if(typeof(a)=="bigint") console.log("Это большое число");
-    else if(typeof(a)=="undefined") console.log("Значение не определено");
-    else console.log("Это объект");
+    switch(typeof a){
+      case "string":
+         return "Это строка";
+      case "number":
+         return "Это число";
+      case "boolean":
+         return "Это булево";
+      case "symbol":
+         return "Это символ";
+      case "bigint":
+         return "Это большое число";
+      case "undefined":
+         return "Значение не определено";
+      default:
+         return "Это объект";
+   }
 }
 
 /**

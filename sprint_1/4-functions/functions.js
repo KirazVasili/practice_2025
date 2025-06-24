@@ -41,7 +41,7 @@ console.log(sum(9, 3));
 
 function isEven(num){
    if(num % 2 == 0) return true;
-   else return false;
+   return false;
 }
 console.log(isEven(3));
 console.log(isEven(8));
@@ -56,7 +56,9 @@ console.log(isEven(8));
 // Код задания 5
 
 function formatName(firstName, lastName){
-   return `${lastName} ${firstName[0]}.`
+   let firstN = "";
+   if(firstName !== "") firstN = firstName[0] + ".";
+   return `${lastName} ${firstN}`
 }
 console.log(formatName("Иван", "Иванов"));
 
@@ -96,7 +98,7 @@ console.log(translateStatus("success"));
 
 function canLogin(user){
    if(user.isActive === true && user.role === "admin") return true;
-   else return false;
+   return false;
 }
 let userOne = { isActive: true, role: "admin"};
 let userTwo = { isActive: true, role: "user"};

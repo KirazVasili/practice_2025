@@ -48,7 +48,11 @@ for(key in person) console.log(key, person[key]);
 // Код задания 5
 
 function returnKeys(obj){
-    return Object.keys(obj);
+    var new_obj = [];
+    for (let key in obj){
+        new_obj.push(key);
+    }
+    return new_obj;
 }
 console.log(returnKeys(person));
 
@@ -60,7 +64,11 @@ console.log(returnKeys(person));
 // Код задания 6
 
 function returnValues(obj){
-    return Object.values(obj);
+    var new_obj = [];
+    for (let key in obj){
+        new_obj.push(obj[key]);
+    }
+    return new_obj;
 }
 console.log(returnValues(person));
 

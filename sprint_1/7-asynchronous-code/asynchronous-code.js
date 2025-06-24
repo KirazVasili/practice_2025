@@ -36,12 +36,14 @@ sequentialLogs();
 // Код задания 3
 
 function checkNumber(num){
-    return new Promise(() => {
-        if(num>10) console.log("OK");
-        else console.log("Too small");
+    return new Promise((resolve, reject) => {
+        if(num>10) resolve("OK");
+        else reject("Too small");
     });
 }
-checkNumber(4);
+checkNumber(11)
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
 
 /**
  * Задание 4.
@@ -110,8 +112,12 @@ const fetch = (url) => new Promise(resolve => resolve(url));
 
 async function loadAll(urls) {
     try{
-        const data = await Promise.all([fetch(urls[0]), fetch(urls[1]), fetch(urls[2])]);
+        var await_urls = [];
+        for(let url of urls) await_urls.push(fetch(url));
+
+        const data = await Promise.all(await_urls);
         console.log(data);
+
     }catch(error){
         console.error("error");
     }
@@ -128,7 +134,10 @@ loadAll(["url1", "url2", "url3"]);
 
 async function loadFirst(urls) {
     try{
-        const data = await Promise.race([fetch(urls[0]), fetch(urls[1]), fetch(urls[2])]);
+        var await_urls = [];
+        for(let url of urls) await_urls.push(fetch(url));
+
+        const data = await Promise.race(await_urls);
         console.log(`Победил - ${data}`);
     }catch(error){
         console.error("error");
